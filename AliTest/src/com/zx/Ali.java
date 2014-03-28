@@ -16,7 +16,7 @@ public class Ali {
 			BufferedReader br = new BufferedReader(new FileReader(csv));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(csvNew,false));
 			
-			br.readLine();//¶Á±íÍ·
+			br.readLine();// read head of the file
 			
 			String line = "";
 			int column;
@@ -29,10 +29,12 @@ public class Ali {
 				while(st.hasMoreTokens()){
 					column++;
 					if(column == 4){
-						StringTokenizer stmonth = new StringTokenizer(st.nextToken(), "ÔÂ");
+						StringTokenizer stmonth = new StringTokenizer(st.nextToken(), 
+								new String("æœˆ".getBytes("UTF-8"), "GBK"));
 						StringBuilder date = new StringBuilder(stmonth.nextToken()+".");
 	
-						StringTokenizer stday = new StringTokenizer(stmonth.nextToken(),"ÈÕ");
+						StringTokenizer stday = new StringTokenizer(stmonth.nextToken(),
+								new String("æ—¥".getBytes("UTF-8"), "GBK"));
 						date.append(stday.nextToken());
 						System.out.print(date);
 						
