@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 public class Ali {
 	public static void main(String[] args) {
 		try {
+			//judge the os
 			Properties prop = System.getProperties();
 			String os = prop.getProperty("os.name");
 			String pathname,pathnamenew;
