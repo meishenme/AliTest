@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.StringTokenizer;
 
-public class ParseData {
+public class TransitionData {
 	public static void main(String[] args) {
 		try {
 			String originalFileName = "t_alibaba_data.csv";
