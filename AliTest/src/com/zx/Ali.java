@@ -5,13 +5,24 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Properties;
 import java.util.StringTokenizer;
 
 public class Ali {
 	public static void main(String[] args) {
 		try {
-			File csv = new File("file\\t_alibaba_data.csv");
-			File csvNew = new File("file\\t_alibaba_data_1.txt");
+			Properties prop = System.getProperties();
+			String os = prop.getProperty("os.name");
+			String pathname,pathnamenew;
+			if(os.contains("Mac OS")) {
+				pathname = "file//t_alibaba_data.csv";
+				pathnamenew = "file//t_alibaba_data_1.txt";
+			}else {
+				pathname = "file\\t_alibaba_data.csv";
+				pathnamenew = "file\\t_alibaba_data_1.txt";				
+			}
+			File csv = new File(pathname);
+			File csvNew = new File(pathnamenew);
 			
 			BufferedReader br = new BufferedReader(new FileReader(csv));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(csvNew,false));
