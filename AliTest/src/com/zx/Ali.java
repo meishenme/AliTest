@@ -10,8 +10,8 @@ import java.util.StringTokenizer;
 public class Ali {
 	public static void main(String[] args) {
 		try {
-			File csv = new File("C:\\Users\\Jim\\Desktop\\t_alibaba_data.csv");
-			File csvNew = new File("C:\\Users\\Jim\\Desktop\\t_alibaba_data_1.txt");
+			File csv = new File("file\\t_alibaba_data.csv");
+			File csvNew = new File("file\\t_alibaba_data_1.txt");
 			
 			BufferedReader br = new BufferedReader(new FileReader(csv));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(csvNew,false));
