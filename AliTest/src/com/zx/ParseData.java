@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-public class Ali {
+public class ParseData {
 	public static void main(String[] args) {
 		try {
 			//judge the os
