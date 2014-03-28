@@ -16,7 +16,7 @@ public class Ali {
 			BufferedReader br = new BufferedReader(new FileReader(csv));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(csvNew,false));
 			
-			br.readLine();//读标题行
+			br.readLine();//读表头
 			
 			String line = "";
 			int column;
