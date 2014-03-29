@@ -5,17 +5,18 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class PeriodicityObject {
+public class RecentlyClickedObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("PeriodicityData.txt");
+		BufferedWriter bw = FileUtil.getBufferedWriter("RecentlyClickedData.txt");
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";
 		String product = "", productCompare = "";
 		String behavior = "";
-		String date = "", month = "", monthCompare = "", day = "", dayCompare = "";
-		int countBuy = 0, productCount = 0, customerCount = 0;
+		String date = "", month = "";
+		int countClicked = 0, productCount = 0, customerCount = 0;
+		boolean isBought = false;
 		
 		try {
 			while((lineTxt = br.readLine()) != null){
@@ -28,20 +29,20 @@ public class PeriodicityObject {
 			    date = st.nextToken();
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
-			    day = stDate.nextToken();
+                
+			    if(month.compareTo("7") < 0)
+                	continue;
+                else {
+                	if(behavior.equals("1")) {
+                		isBought = true;
+                	}
+                }
 			    
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
-			    	
-			    	if(behavior.equals("1")) {
-			    		if(!(month.equals(monthCompare) && day.equals(dayCompare))) {
-			    			countBuy++;
-			    			monthCompare = month;
-			    			dayCompare = day;
-			    		}
-			    	}
+			    	countClicked++;
 			    }else {
 			    	
-			    	if(countBuy >= 2) {
+			    	if(countClicked >= 8 && isBought == false) {
 			    		productCount++;
 			    		
 			    		if(!(customerFlag.equals(customerCompare))) {
@@ -61,17 +62,14 @@ public class PeriodicityObject {
 			    	}
 			    	
 			    	if(behavior.equals("1")) {
-			    		countBuy = 1;
-			    		monthCompare = month;
-			    		dayCompare = day;
+			    		isBought = true;
 			    	}else {
-			    		countBuy = 0;
-			    		monthCompare = "";
-			    		dayCompare = "";
+			    		isBought = false;
 			    	}
 			    	
 			    	customerCompare = customer;
 			    	productCompare = product;
+			    	countClicked = 1;
 			    }
 			}
 			br.close();

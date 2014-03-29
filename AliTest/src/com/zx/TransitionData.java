@@ -7,11 +7,8 @@ import java.util.StringTokenizer;
 public class TransitionData {
 	public static void main(String[] args) {
 		try {
-			String originalFileName = "t_alibaba_data.csv";
-			String resultFileName = "t_alibaba_data_1.txt";
-			FileUtil fUtil = new FileUtil(originalFileName, resultFileName);
-			BufferedReader br = fUtil.getBufferedReader();
-			BufferedWriter bw = fUtil.getBufferedWriter();
+			BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data.csv");
+			BufferedWriter bw = FileUtil.getBufferedWriter("t_alibaba_data_1.txt");
 			
 			br.readLine();// read head of the file
 			
