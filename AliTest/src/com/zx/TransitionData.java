@@ -8,7 +8,7 @@ public class TransitionData {
 	public static void main(String[] args) {
 		try {
 			BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data.csv");
-			BufferedWriter bw = FileUtil.getBufferedWriter("t_alibaba_data_1.txt");
+			BufferedWriter bw = FileUtil.getBufferedWriter("t_alibaba_data_1.txt",false);
 			
 			br.readLine();// read head of the file
 			

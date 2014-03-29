@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class RecentlyClickedObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("RecentlyClickedData.txt");
+		BufferedWriter bw = FileUtil.getBufferedWriter("RecentlyClickedData.txt",false);
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";

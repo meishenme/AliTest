@@ -34,7 +34,7 @@ public class FileUtil {
 		return new BufferedReader(null);
 	}
 	
-	public static BufferedWriter getBufferedWriter(String fileName) {
+	public static BufferedWriter getBufferedWriter(String fileName, boolean append) {
 		//judge the os
 		Properties prop = System.getProperties();
 		String os = prop.getProperty("os.name");
@@ -47,7 +47,7 @@ public class FileUtil {
 		pathname.append(fileName);
 		File file = new File(pathname.toString());
 		try {
-			return new BufferedWriter(new FileWriter(file,false));
+			return new BufferedWriter(new FileWriter(file,append));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,17 +77,14 @@ public class FileUtil {
 		path.append(oldFileName);
 		newPath.append(newFileName);
 		
-		try { 
-			int bytesum = 0; 
+		try {
 			int byteread = 0; 
 			File oldfile = new File(path.toString()); 
 			if (oldfile.exists()) {                  //文件存在时 
 				InputStream inStream = new FileInputStream(path.toString());      //读入原文件 
 				FileOutputStream fs = new FileOutputStream(newPath.toString(),false); 
 				byte[] buffer = new byte[1444];  
-				while ( (byteread = inStream.read(buffer)) != -1) { 
-					bytesum += byteread;            //字节数 文件大小 
-					System.out.println(bytesum);
+				while ( (byteread = inStream.read(buffer)) != -1) {
 					fs.write(buffer, 0, byteread);
 				}
 				inStream.close();

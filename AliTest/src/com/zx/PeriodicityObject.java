@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class PeriodicityObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("PeriodicityData.txt");
+		BufferedWriter bw = FileUtil.getBufferedWriter("PeriodicityData.txt",false);
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";
