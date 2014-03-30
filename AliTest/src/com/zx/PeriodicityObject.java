@@ -41,23 +41,32 @@ public class PeriodicityObject {
 			    	}
 			    }else {
 			    	
-			    	if(countBuy >= 2) {
+			    	if(countBuy >= 1) {
 			    		productCount++;
-			    		
-			    		if(!(customerFlag.equals(customerCompare))) {
-			    			customerCount++;
-			    			customerFlag= customerCompare;
-			    			
-			    			if(productCount != 1) {
-			    				System.out.print("\n");
-			    				bw.newLine();
-			    			}
-			    			System.out.print(customerCompare + "\t" + productCompare);
-			    			bw.write(customerCompare + "\t" + productCompare);
-			    		}else {
-			    			System.out.print("," + productCompare);
-			    			bw.write("," + productCompare);
-			    		}
+		    			
+			    		//----------------------------------------------
+			    		if(productCount != 1) {
+		    				System.out.print("\n");
+		    				bw.newLine();
+		    			}			    		
+		    			System.out.print(customerCompare + "\t" + productCompare);
+		    			bw.write(customerCompare + "\t" + productCompare);
+		    			//----------------------------------------------
+		    			
+//			    		if(!(customerFlag.equals(customerCompare))) {
+//			    			customerCount++;
+//			    			customerFlag= customerCompare;
+//			    			
+//			    			if(productCount != 1) {
+//			    				System.out.print("\n");
+//			    				bw.newLine();
+//			    			}
+//			    			System.out.print(customerCompare + "\t" + productCompare);
+//			    			bw.write(customerCompare + "\t" + productCompare);
+//			    		}else {
+//			    			System.out.print("," + productCompare);
+//			    			bw.write("," + productCompare);
+//			    		}
 			    	}
 			    	
 			    	if(behavior.equals("1")) {

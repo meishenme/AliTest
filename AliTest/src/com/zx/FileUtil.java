@@ -10,10 +10,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
 import java.util.Properties;
 
 public class FileUtil {	
-	public static BufferedReader getBufferedReader(String fileName) {
+	public static String getPathPrefix() {
 		//judge the os
 		Properties prop = System.getProperties();
 		String os = prop.getProperty("os.name");
@@ -23,6 +24,10 @@ public class FileUtil {
 		}else {
 			pathname.append("\\");				
 		}
+		return pathname.toString();
+	}
+	public static BufferedReader getBufferedReader(String fileName) {
+		StringBuilder pathname = new StringBuilder(getPathPrefix());
 		pathname.append(fileName);
 		File file = new File(pathname.toString());
 		try {
@@ -31,19 +36,11 @@ public class FileUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new BufferedReader(null);
+		return null;
 	}
 	
 	public static BufferedWriter getBufferedWriter(String fileName, boolean append) {
-		//judge the os
-		Properties prop = System.getProperties();
-		String os = prop.getProperty("os.name");
-		StringBuilder pathname = new StringBuilder("file");
-		if(os.contains("Mac OS")) {
-			pathname.append("//");
-		}else {
-			pathname.append("\\");				
-		}
+		StringBuilder pathname = new StringBuilder(getPathPrefix());
 		pathname.append(fileName);
 		File file = new File(pathname.toString());
 		try {
@@ -52,7 +49,19 @@ public class FileUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new BufferedWriter(null);
+		return null;
+	}
+	
+	public static RandomAccessFile getRandomAccessFile(String fileName) {
+		StringBuilder pathname = new StringBuilder(getPathPrefix());
+		pathname.append(fileName);
+		try {
+			return new RandomAccessFile(pathname.toString(), "rw");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/** 
@@ -62,18 +71,8 @@ public class FileUtil {
     * @return void
     */ 
 	public static void copyFile(String oldFileName, String newFileName) { 
-		//judge the os
-		Properties prop = System.getProperties();
-		String os = prop.getProperty("os.name");
-		StringBuilder path = new StringBuilder("file");
-		StringBuilder newPath = new StringBuilder("file");
-		if(os.contains("Mac OS")) {
-			path.append("//");
-			newPath.append("//");
-		}else {
-			path.append("\\");
-			newPath.append("//");
-		}
+		StringBuilder path = new StringBuilder(getPathPrefix());
+		StringBuilder newPath = new StringBuilder(getPathPrefix());
 		path.append(oldFileName);
 		newPath.append(newFileName);
 		

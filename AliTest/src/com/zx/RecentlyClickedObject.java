@@ -42,23 +42,32 @@ public class RecentlyClickedObject {
 			    	countClicked++;
 			    }else {
 			    	
-			    	if(countClicked >= 8 && isBought == false) {
+			    	if(countClicked >= 4 && isBought == false) {
 			    		productCount++;
 			    		
-			    		if(!(customerFlag.equals(customerCompare))) {
-			    			customerCount++;
-			    			customerFlag= customerCompare;
-			    			
-			    			if(productCount != 1) {
-			    				System.out.print("\n");
-			    				bw.newLine();
-			    			}
-			    			System.out.print(customerCompare + "\t" + productCompare);
-			    			bw.write(customerCompare + "\t" + productCompare);
-			    		}else {
-			    			System.out.print("," + productCompare);
-			    			bw.write("," + productCompare);
+			    		//------------------------------------------
+			    		if(productCount != 1) {
+			    			System.out.print("\n");
+			    			bw.newLine();
 			    		}
+			    		System.out.print(customerCompare + "\t" + productCompare);
+			    		bw.write(customerCompare + "\t" + productCompare);
+			    		//------------------------------------------
+			    		
+//			    		if(!(customerFlag.equals(customerCompare))) {
+//			    			customerCount++;
+//			    			customerFlag= customerCompare;
+//			    			
+//			    			if(productCount != 1) {
+//			    				System.out.print("\n");
+//			    				bw.newLine();
+//			    			}
+//			    			System.out.print(customerCompare + "\t" + productCompare);
+//			    			bw.write(customerCompare + "\t" + productCompare);
+//			    		}else {
+//			    			System.out.print("," + productCompare);
+//			    			bw.write("," + productCompare);
+//			    		}
 			    	}
 			    	
 			    	if(behavior.equals("1")) {
