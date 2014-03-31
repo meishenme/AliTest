@@ -33,15 +33,16 @@ public class PeriodicityObject {
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
 			    	
 			    	if(behavior.equals("1")) {
-			    		if(!(month.equals(monthCompare) && day.equals(dayCompare))) {
-			    			countBuy++;
-			    			monthCompare = month;
-			    			dayCompare = day;
-			    		}
+//			    		if(!(month.equals(monthCompare) && day.equals(dayCompare))) {
+//			    			countBuy++;
+//			    			monthCompare = month;
+//			    			dayCompare = day;
+//			    		}
+			    		countBuy++;
 			    	}
 			    }else {
 			    	
-			    	if(countBuy >= 1) {
+			    	if(countBuy >= 2) {
 			    		productCount++;
 		    			
 			    		//----------------------------------------------

@@ -42,7 +42,9 @@ public class RecentlyClickedObject {
 			    	countClicked++;
 			    }else {
 			    	
-			    	if(countClicked >= 4 && isBought == false) {
+			    	if(countClicked >= 6) {
+//			    	if(countClicked >= 6 && isBought == false) {
+			    		
 			    		productCount++;
 			    		
 			    		//------------------------------------------
