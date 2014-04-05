@@ -16,6 +16,7 @@ public class RecentlyClickedObject {
 		String behavior = "";
 		String date = "", month = "",day = "";
 		int countClicked = 0, productCount = 0, customerCount = 0;
+//		boolean flagLast10 = false;
 //		boolean isBought = false;
 		//---------------------------
 //		boolean behavior2Or3 = false;
@@ -60,14 +61,16 @@ public class RecentlyClickedObject {
 //                		isBought = true;
 //                	}
 //              }
+//			    if(month.compareTo("7") < 0 || (month.compareTo("7") == 0 && day.compareTo("16") < 0))
+//			    	continue;
 			    if(month.compareTo("7") < 0)
-			    	continue;
-			    
+			    	continue;			  
+//			    	
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
 			    	countClicked++;
 			    }else {
 			    	
-//			    	if(behavior2Or3 == true && isBought == false) {
+//			    	if(behavior2Or3 == true) {
 			    	if(countClicked >= 6) {
 //			    	if(countClicked >= 15 && isBought == false && month5678 == false) {
 			    		
