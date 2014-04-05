@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class PeriodicityObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("PeriodicityData.txt",false);
+		BufferedWriter bw = FileUtil.getBufferedWriter("1.txt",false);
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";
@@ -24,11 +24,16 @@ public class PeriodicityObject {
 			    customer = st.nextToken();
 			    product = st.nextToken();
 			    behavior = st.nextToken();
-			    
+			           
 			    date = st.nextToken();
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
 			    day = stDate.nextToken();
+			    
+			    //-----------------------
+			    if(month.compareTo("7") < 0)
+                	continue;
+			    //-----------------------
 			    
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
 			    	
@@ -42,7 +47,7 @@ public class PeriodicityObject {
 			    	}
 			    }else {
 			    	
-			    	if(countBuy >= 2) {
+			    	if(countBuy >= 1) {
 			    		productCount++;
 		    			
 			    		//----------------------------------------------
