@@ -34,7 +34,7 @@ public class RecentlyClickedObject {
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
 			    day = stDate.nextToken();
-			    
+			    //Test
 			    if(month.compareTo("5") > 0 || ((month.compareTo("5") == 0) && (day.compareTo("15") >= 0))) {
 			    	month5678 = true;
 			    	continue;
