@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class RecentlyClickedObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("RecentlyClickedData.txt",false);
+		BufferedWriter bw = FileUtil.getBufferedWriter("2222222222.txt",false);
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";
@@ -17,6 +17,9 @@ public class RecentlyClickedObject {
 		String date = "", month = "";
 		int countClicked = 0, productCount = 0, customerCount = 0;
 		boolean isBought = false;
+		//---------------------------
+		boolean behavior2Or3 = false;
+		//---------------------------
 		
 		try {
 			while((lineTxt = br.readLine()) != null){
@@ -29,21 +32,37 @@ public class RecentlyClickedObject {
 			    date = st.nextToken();
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
-                
-			    if(month.compareTo("7") < 0)
-                	continue;
-                else {
-                	if(behavior.equals("1")) {
-                		isBought = true;
-                	}
-                }
+			    
+			    if(month.compareTo("5") < 0)
+			    	continue;
+			    if(behavior.equals("1"))
+			    	isBought = true;
+                //---------------------------
+//			    if(month.compareTo("7") < 0)
+//            		continue;
+//            	else {
+//            		if(behavior.equals("2") || behavior.equals("3")) {
+//            			behavior2Or3 = true;
+//            		}
+//            		if(behavior.equals("1"))
+//            			isBought = true;
+//				}
+			    //---------------------------
+//			    if(month.compareTo("7") < 0)
+//                	continue;
+//                else {
+//                	if(behavior.equals("1")) {
+//                		isBought = true;
+//                	}
+//              }
 			    
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
 			    	countClicked++;
 			    }else {
 			    	
-			    	if(countClicked >= 6) {
-//			    	if(countClicked >= 6 && isBought == false) {
+//			    	if(behavior2Or3 == true && isBought == false) {
+//			    	if(countClicked >= 6) {
+			    	if(countClicked >= 15 && isBought == false) {
 			    		
 			    		productCount++;
 			    		
@@ -72,11 +91,16 @@ public class RecentlyClickedObject {
 //			    		}
 			    	}
 			    	
-			    	if(behavior.equals("1")) {
+//			    	if(behavior.equals("2") || behavior.equals("3")) {
+//            			behavior2Or3 = true;
+//			    	}else {
+//			    		behavior2Or3 = false;
+//			    	}
+			    	
+			    	if(behavior.equals("1"))
 			    		isBought = true;
-			    	}else {
+			    	else
 			    		isBought = false;
-			    	}
 			    	
 			    	customerCompare = customer;
 			    	productCompare = product;
