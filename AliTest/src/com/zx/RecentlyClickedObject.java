@@ -14,11 +14,12 @@ public class RecentlyClickedObject {
 		String customer = "", customerCompare = "", customerFlag = "";
 		String product = "", productCompare = "";
 		String behavior = "";
-		String date = "", month = "";
+		String date = "", month = "",day = "";
 		int countClicked = 0, productCount = 0, customerCount = 0;
 		boolean isBought = false;
 		//---------------------------
 		boolean behavior2Or3 = false;
+		boolean month5678 = false;
 		//---------------------------
 		
 		try {
@@ -32,9 +33,13 @@ public class RecentlyClickedObject {
 			    date = st.nextToken();
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
+			    day = stDate.nextToken();
 			    
-			    if(month.compareTo("5") < 0)
+			    if(month.compareTo("5") > 0 || ((month.compareTo("5") == 0) && (day.compareTo("15") >= 0))) {
+			    	month5678 = true;
 			    	continue;
+			    }
+			    	
 			    if(behavior.equals("1"))
 			    	isBought = true;
                 //---------------------------
@@ -62,7 +67,7 @@ public class RecentlyClickedObject {
 			    	
 //			    	if(behavior2Or3 == true && isBought == false) {
 //			    	if(countClicked >= 6) {
-			    	if(countClicked >= 15 && isBought == false) {
+			    	if(countClicked >= 15 && isBought == false && month5678 == false) {
 			    		
 			    		productCount++;
 			    		
@@ -105,6 +110,7 @@ public class RecentlyClickedObject {
 			    	customerCompare = customer;
 			    	productCompare = product;
 			    	countClicked = 1;
+			    	month5678 = false;
 			    }
 			}
 			br.close();
