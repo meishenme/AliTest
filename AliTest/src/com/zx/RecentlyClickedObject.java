@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class RecentlyClickedObject {
 	public static void main(String[] args) {
 		BufferedReader br = FileUtil.getBufferedReader("t_alibaba_data_1.txt");
-		BufferedWriter bw = FileUtil.getBufferedWriter("2222222222.txt",false);
+		BufferedWriter bw = FileUtil.getBufferedWriter("RecentlyClickedObject.txt",false);
 		
 		String lineTxt = "";
 		String customer = "", customerCompare = "", customerFlag = "";
@@ -16,10 +16,10 @@ public class RecentlyClickedObject {
 		String behavior = "";
 		String date = "", month = "",day = "";
 		int countClicked = 0, productCount = 0, customerCount = 0;
-		boolean isBought = false;
+//		boolean isBought = false;
 		//---------------------------
-		boolean behavior2Or3 = false;
-		boolean month5678 = false;
+//		boolean behavior2Or3 = false;
+//		boolean month5678 = false;
 		//---------------------------
 		
 		try {
@@ -34,14 +34,14 @@ public class RecentlyClickedObject {
 			    StringTokenizer stDate = new StringTokenizer(date,".");
 			    month = stDate.nextToken();
 			    day = stDate.nextToken();
-			    //Test
-			    if(month.compareTo("5") > 0 || ((month.compareTo("5") == 0) && (day.compareTo("15") >= 0))) {
-			    	month5678 = true;
-			    	continue;
-			    }
-			    	
-			    if(behavior.equals("1"))
-			    	isBought = true;
+//			    //Test
+//			    if(month.compareTo("5") > 0 || ((month.compareTo("5") == 0) && (day.compareTo("15") >= 0))) {
+//			    	month5678 = true;
+//			    	continue;
+//			    }
+//			    	
+//			    if(behavior.equals("1"))
+//			    	isBought = true;
                 //---------------------------
 //			    if(month.compareTo("7") < 0)
 //            		continue;
@@ -60,14 +60,16 @@ public class RecentlyClickedObject {
 //                		isBought = true;
 //                	}
 //              }
+			    if(month.compareTo("7") < 0)
+			    	continue;
 			    
 			    if(customer.equals(customerCompare) && product.equals(productCompare)) {
 			    	countClicked++;
 			    }else {
 			    	
 //			    	if(behavior2Or3 == true && isBought == false) {
-//			    	if(countClicked >= 6) {
-			    	if(countClicked >= 15 && isBought == false && month5678 == false) {
+			    	if(countClicked >= 6) {
+//			    	if(countClicked >= 15 && isBought == false && month5678 == false) {
 			    		
 			    		productCount++;
 			    		
@@ -102,15 +104,15 @@ public class RecentlyClickedObject {
 //			    		behavior2Or3 = false;
 //			    	}
 			    	
-			    	if(behavior.equals("1"))
-			    		isBought = true;
-			    	else
-			    		isBought = false;
+//			    	if(behavior.equals("1"))
+//			    		isBought = true;
+//			    	else
+//			    		isBought = false;
 			    	
 			    	customerCompare = customer;
 			    	productCompare = product;
 			    	countClicked = 1;
-			    	month5678 = false;
+//			    	month5678 = false;
 			    }
 			}
 			br.close();
